@@ -94,7 +94,7 @@ app.post('/login', async (req: Request, res: Response, next: NextFunction) => {
     passport.authenticate('local', { session: false }, (error:any, user:any, info:any) => {
       try {
         if (error || !user) {
-          return res.status(401).json({ error: info.message || 'Invalid credentials' });
+          return res.status(401).json({ error:  'Invalid credentials' });
         }
   
         const token = jwt.sign({ id: user.id }, jwtOptions.secretOrKey);
